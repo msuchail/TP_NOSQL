@@ -1,0 +1,19 @@
+services:
+  redis:
+    image: redis
+    networks:
+      - default
+
+  mongodb:
+    image: mongodb/mongodb-community-server
+    volumes:
+      - ./mongo:/data/db mongodb/
+    networks:
+      - default
+
+  cassandra:
+    image: cassandra
+    volumes:
+      - ./cassandra:/var/lib/cassandra
+    networks:
+      - default
