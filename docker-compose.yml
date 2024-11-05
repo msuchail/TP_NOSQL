@@ -3,6 +3,8 @@ services:
     image: redis
     networks:
       - default
+    ports:
+      - "6379:6379"
 
   mongodb:
     image: mongodb/mongodb-community-server
@@ -10,6 +12,8 @@ services:
       - ./mongo:/data/db mongodb/
     networks:
       - default
+    ports:
+      - "27017:27017"
 
   cassandra:
     image: cassandra
@@ -17,3 +21,5 @@ services:
       - ./cassandra:/var/lib/cassandra
     networks:
       - default
+    ports:
+      - "9042:9042"
