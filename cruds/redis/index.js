@@ -76,22 +76,22 @@ const crud = {
 };
 
 // Exemple d'utilisation
-// (async () => {
-//     // Mouvements
-//     await crud.movements.create("123", 50, 100);
-//     const movement = await crud.movements.read("123");
-//     console.log("Mouvement du joueur:", movement);
+(async () => {
+    // Mouvements
+    await crud.movements.create("123", 50, 100);
+    const movement = await crud.movements.read("123");
+    console.log("Mouvement du joueur:", movement);
 
-//     // Attaques
-//     await crud.attacks.create("123", "456", 200);
-//     const attack = await crud.attacks.read("123", "456");
-//     console.log("Détails de l'attaque:", attack);
+    // Attaques
+    await crud.attacks.create("123", "456", 200);
+    const attack = await crud.attacks.read("123", "456");
+    console.log("Détails de l'attaque:", attack);
 
-//     // Classements
-//     await crud.leaderboard.addOrUpdate("123", 1000);
-//     const topPlayers = await crud.leaderboard.getTopPlayers();
-//     console.log("Classement des joueurs:", topPlayers);
+    // Classements
+    await crud.leaderboard.addOrUpdate("123", 1000);
+    const topPlayers = await crud.leaderboard.getTopPlayers();
+    console.log("Classement des joueurs:", topPlayers);
 
-//     // Fermer la connexion Redis
-//     redis.quit();
-// })();
+    // Fermer la connexion Redis
+    redis.quit();
+})();
