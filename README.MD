@@ -16,10 +16,13 @@ Cet écosysteme est composé de 3 bases de données :
 ## Installation
 ### Prérequis
 - **Docker** : Pour lancer les bases de données
-### Lancement
+### Lancement et installation des dépendances node
 
 ```bash
-docker-compose up -d
+docker-compose up -d && 
+docker exec node npm --prefix mongo install &&
+docker exec node npm --prefix redis install &&
+docker exec node npm --prefix cassandra install
 ```
 
 ### Test des CRUDS
