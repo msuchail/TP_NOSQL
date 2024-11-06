@@ -3,6 +3,14 @@ import { MongoClient } from "mongodb";
 const uri = "mongodb://localhost:27017";
 const client = new MongoClient(uri);
 
+
+await client.db('GameForge').dropDatabase()
+const db= client.db('GameForge')
+await db.createCollection("objets")
+await db.createCollection("competences")
+await db.createCollection("classes")
+await db.createCollection("players")
+
 const crud = {
 //Gestion des objets
     objects: {
@@ -45,7 +53,7 @@ const crud = {
             return db.collection("objets").deleteOne({ _id: object_id })
         }
     },
-/*//Gestion des compétences
+//Gestion des compétences
     competences: {
         create: function(nom){
             return db.competences.insertOne({
@@ -187,16 +195,5 @@ const crud = {
                 },
             },
         }
-    },*/
+    },
 }
-
-await client.db('GameForge').dropDatabase()
-const db= client.db('GameForge')
-await db.createCollection("objets")
-await db.createCollection("competences")
-await db.createCollection("classes")
-await db.createCollection("players")
-
-
-
-crud.objects.create('Epée', 0, 10)
