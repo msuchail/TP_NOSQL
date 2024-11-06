@@ -1,4 +1,15 @@
 services:
+  node:
+    user: root
+    image: node
+    container_name: node
+    entrypoint: tail -f /dev/null
+    working_dir: /cruds
+    volumes:
+      - ./cruds:/cruds
+    network_mode: host
+
+
   redis:
     image: redis
     networks:
