@@ -37,7 +37,7 @@ docker exec node node mongo/index.js
 ```bash
 docker exec node node redis/index.js
 ```
-#### CRUD cassandra
+#### CRUD cassandra (Attention, la base de données prend un peu de temps à se lancer. Si vous avez une erreur, relancez la commande après une minute)
 ```bash
 docker exec node node cassandra/index.js
 ```

@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "mongo",
   "version": "1.0.0",
   "main": "index.ts",

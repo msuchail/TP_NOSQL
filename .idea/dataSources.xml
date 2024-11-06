@@ -15,12 +15,5 @@
       <jdbc-url>mongodb://localhost:27017</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="@localhost [2]" uuid="557119b9-95cd-4aeb-b788-fac5442fee64">
-      <driver-ref>cassandra</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>com.ing.data.cassandra.jdbc.CassandraDriver</jdbc-driver>
-      <jdbc-url>jdbc:cassandra://localhost:9042</jdbc-url>
-      <working-dir>$ProjectFileDir$</working-dir>
-    </data-source>
   </component>
 </project>

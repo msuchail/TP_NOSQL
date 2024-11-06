@@ -1,18 +1,31 @@
 // db.js
-const cassandra = require('cassandra-driver');
-const { v4: uuidv4 } = require('uuid');
+const cassandra = await import('cassandra-driver');
+const { v4: uuidv4 } = await import('uuid');
 
 // Configurer le client Cassandra avec vos paramètres de cluster
-const client = new cassandra.Client({
+let client = new cassandra.Client({
   contactPoints: ['127.0.0.1'],
   localDataCenter: 'datacenter1',
-  keyspace: 'my_keyspace',
 });
 
 // Tester la connexion
 client.connect()
-  .then(() => console.log('Connexion à Cassandra réussie !'))
+  .then(() => {
+      console.log('Connexion à Cassandra réussie !')
+  })
   .catch(err => console.error('Erreur de connexion à Cassandra:', err));
+
+
+await client.execute('CREATE KEYSPACE IF NOT EXISTS mykeyspace WITH REPLICATION = { \'class\' : \'SimpleStrategy\', \'replication_factor\' : 1 }')
+
+await client.execute('CREATE TABLE IF NOT EXISTS mykeyspace.player_stat (player_id UUID PRIMARY KEY, timestamp TIMESTAMP, attaque INT, defense INT, victoire INT)')
+
+client = new cassandra.Client({
+    contactPoints: ['127.0.0.1'],
+    localDataCenter: 'datacenter1',
+    keyspace: 'mykeyspace'
+});
+
 
 const crud = {
 
