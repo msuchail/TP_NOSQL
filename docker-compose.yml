@@ -16,7 +16,7 @@ services:
       - "27017:27017"
 
   cassandra:
-    image: cassandra
+    image: cassandra:latest
     volumes:
       - ./cassandra:/var/lib/cassandra
     networks:
